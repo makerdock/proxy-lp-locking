@@ -10,7 +10,7 @@
             {
                 "indexed": true,
                 "internalType": "address",
-                "name": "deployedaddress",
+                "name": "lockerAddress",
                 "type": "address"
             },
             {
@@ -18,9 +18,21 @@
                 "internalType": "address",
                 "name": "_owner",
                 "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint64",
+                "name": "lockedPeriod",
+                "type": "uint64"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
             }
         ],
-        "name": "deployed",
+        "name": "LockedLP",
         "type": "event"
     },
     {
@@ -39,6 +51,11 @@
                 "internalType": "uint64",
                 "name": "durationSeconds",
                 "type": "uint64"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
             }
         ],
         "name": "deploy",

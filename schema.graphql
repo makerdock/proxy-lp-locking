@@ -1,10 +1,8 @@
-type NewTokenEvent @entity {
+type LockedLPEvent @entity {
   id: ID!
-  tokenAddress: Bytes! # address
-  tokenName: String!
-  tokenSymbol: String!
-  maxSupply: BigInt!
-  creator: Bytes! # address
-  timestamp: BigInt!
+  lockerAddress: Bytes! # address
+  _owner: Bytes! # address
+  lockedPeriod: BigInt!
+  tokenId: BigInt!
 	transactionHash: Bytes!
 }

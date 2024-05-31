@@ -1,21 +1,19 @@
-import { NewToken } from "../generated/tokenLaunchpad/tokenLaunchpad";
-import { NewTokenEvent } from '../generated/schema';
+import { LockedLP } from "../generated/lockedLP/lockedLP";
+import { LockedLPEvent } from '../generated/schema';
 import { Bytes } from "@graphprotocol/graph-ts";
 
-export function handleLPLocking(event: NewToken): void {
+export function handleLPLocking(event: LockedLP): void {
   let id = event.transaction.hash.toHex();
 
-  const newTokenEvent = new NewTokenEvent(id);
+  const newLockedLPEvent = new LockedLPEvent(id);
 
-  newTokenEvent.id = id;
-  newTokenEvent.tokenAddress = event.params.tokenAddress;
-  newTokenEvent.tokenName = event.params.tokenName;
-  newTokenEvent.tokenSymbol = event.params.tokenSymbol;
-  newTokenEvent.maxSupply = event.params.maxSupply;
-  newTokenEvent.creator = event.params.creator;
+  newLockedLPEvent.id = id;
+  newLockedLPEvent._owner = event.params._owner;
+  newLockedLPEvent.tokenId = event.params.tokenId;
+  newLockedLPEvent.lockedPeriod = event.params.lockedPeriod;
+  newLockedLPEvent.lockerAddress = event.params.lockerAddress;
 
-  newTokenEvent.timestamp = event.block.timestamp;
-  newTokenEvent.transactionHash = event.transaction.hash;
+  newLockedLPEvent.transactionHash = event.transaction.hash;
   
-  newTokenEvent.save();
+  newLockedLPEvent.save();
 }

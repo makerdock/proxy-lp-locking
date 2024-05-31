@@ -3,22 +3,22 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: tokenLaunchpad
+    name: lockedLP
     network: degen
     source:
-      address: "0xad00De226de26705Fb2921CDeCc488e7C9e1d8f0"
-      abi: tokenLaunchpad
-      startBlock: 15316162
+      address: "0x8A5e6371247bb0C78014E3f08d49911B605fdb40"
+      abi: lockedLP
+      startBlock: 20667610
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
-        - NewToken
+        - LockedLP
       abis:
-        - name: tokenLaunchpad
-          file: ./abis/tokenLaunchpad.json
+        - name: lockedLP
+          file: ./abis/lockedLP.json
       eventHandlers:
-        - event: 'NewToken(indexed address,string,string,uint256,indexed address)'
+        - event: 'LockedLP(indexed address,indexed address,uint64,uint256)'
           handler: handleLPLocking
-      file: ./src/tokenLaunchpad.ts
+      file: ./src/lockedLP.ts
