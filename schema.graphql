@@ -1,0 +1,10 @@
+type NewTokenEvent @entity {
+  id: ID!
+  tokenAddress: Bytes! # address
+  tokenName: String!
+  tokenSymbol: String!
+  maxSupply: BigInt!
+  creator: Bytes! # address
+  timestamp: BigInt!
+	transactionHash: Bytes!
+}

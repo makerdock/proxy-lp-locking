@@ -1,2 +1,0 @@
-export const MARKET_PLACE_TYPE = "NFT_MARKET_PLACE"
-export const PROTOCOL_SELL_ACTION_TYPE = "SELL"

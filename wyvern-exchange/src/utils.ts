@@ -1,4 +1,0 @@
-export const ETHEREUM_MAINNET_ID = "1";
-export const TRANSACTION_TYPE_SALE = "SALE";
-export const MARKET_PLACE_TYPE = "NFT_MARKET_PLACE";
-export const PROTOCOL_SELL_ACTION_TYPE = "SELL";
