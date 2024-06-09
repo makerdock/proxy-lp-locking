@@ -6,9 +6,9 @@ dataSources:
     name: lockedLP
     network: degen
     source:
-      address: "0x8A5e6371247bb0C78014E3f08d49911B605fdb40"
+      address: "0x6a1265cae352531fbb4fa8767ffe6e712e643ea9"
       abi: lockedLP
-      startBlock: 20667610
+      startBlock: 22880739
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -21,4 +21,24 @@ dataSources:
       eventHandlers:
         - event: 'LockedLP(indexed address,indexed address,uint64,uint256)'
           handler: handleLPLocking
-      file: ./src/lockedLP.ts
+      file: ./src/mappings/lockedLP.ts
+
+templates:
+  - kind: ethereum
+    name: LpLocker
+    network: degen
+    source:
+      abi: lpLocker
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ERC721Released
+      abis:
+        - name: lpLocker
+          file: ./abis/lpLocker.json
+      eventHandlers:
+        - event: 'ERC721Released(indexed address,uint256)'
+          handler: handleLpRelease
+      file: ./src/mappings/lockedLP.ts

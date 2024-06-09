@@ -5,4 +5,11 @@ type LockedLPEvent @entity {
   lockedPeriod: BigInt!
   tokenId: BigInt!
 	transactionHash: Bytes!
+  released: Boolean!
+}
+
+type ERC721ReleasedEvent @entity {
+  id: ID!
+  token: Bytes! # address
+  amount: BigInt!
 }
