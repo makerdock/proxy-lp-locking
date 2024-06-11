@@ -1,10 +1,5 @@
 [
     {
-        "inputs": [],
-        "stateMutability": "payable",
-        "type": "constructor"
-    },
-    {
         "anonymous": false,
         "inputs": [
             {
@@ -16,23 +11,23 @@
             {
                 "indexed": true,
                 "internalType": "address",
-                "name": "_owner",
+                "name": "owner",
                 "type": "address"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint64",
-                "name": "lockedPeriod",
-                "type": "uint64"
             },
             {
                 "indexed": false,
                 "internalType": "uint256",
                 "name": "tokenId",
                 "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "lockingPeriod",
+                "type": "uint256"
             }
         ],
-        "name": "LockedLP",
+        "name": "deployed",
         "type": "event"
     },
     {

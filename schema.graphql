@@ -1,8 +1,8 @@
 type LockedLPEvent @entity {
   id: ID!
   lockerAddress: Bytes! # address
-  _owner: Bytes! # address
-  lockedPeriod: BigInt!
+  owner: Bytes! # address
+  lockingPeriod: BigInt!
   tokenId: BigInt!
 	transactionHash: Bytes!
   released: Boolean!

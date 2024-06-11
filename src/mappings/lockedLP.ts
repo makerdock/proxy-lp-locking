@@ -1,26 +1,17 @@
-import { LockedLP } from "../../generated/lockedLP/lockedLP";
+import { deployed } from "../../generated/lockedLP/lockedLP";
 import { LockedLPEvent } from '../../generated/schema';
 import { Bytes } from "@graphprotocol/graph-ts";
 
-export function handleLPLocking(event: LockedLP): void {
+export function handleLPLocking(event: deployed): void {
   let id = event.params.tokenId.toString();
   
-  // Fetch the existing entry with the same tokenId
-  let lpLockingEvent = LockedLPEvent.load(id);
-
-  if (lpLockingEvent == null) {
-    // If no existing entry, create a new one
-    lpLockingEvent = new LockedLPEvent(id);
-  } else {
-    // If existing entry found, update it
-    lpLockingEvent = lpLockingEvent as LockedLPEvent;
-  }
+  const lpLockingEvent = new LockedLPEvent(id);
 
   // Set or update the fields 
   lpLockingEvent.id = id;
-  lpLockingEvent._owner = event.params._owner;
+  lpLockingEvent.owner = event.params.owner;
   lpLockingEvent.tokenId = event.params.tokenId;
-  lpLockingEvent.lockedPeriod = event.params.lockedPeriod;
+  lpLockingEvent.lockingPeriod = event.params.lockingPeriod;
   lpLockingEvent.lockerAddress = event.params.lockerAddress;
   lpLockingEvent.transactionHash = event.transaction.hash;
   lpLockingEvent.released = false;
