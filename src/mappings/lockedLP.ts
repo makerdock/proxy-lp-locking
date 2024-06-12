@@ -1,6 +1,7 @@
 import { deployed } from "../../generated/lockedLP/lockedLP";
 import { LockedLPEvent } from '../../generated/schema';
 import { Bytes } from "@graphprotocol/graph-ts";
+import { LpLocker } from "../../generated/templates";
 
 export function handleLPLocking(event: deployed): void {
   let id = event.params.tokenId.toString();
@@ -18,4 +19,6 @@ export function handleLPLocking(event: deployed): void {
 
   // Save the entity
   lpLockingEvent.save();
+
+  LpLocker.create(event.params.lockerAddress);
 }
