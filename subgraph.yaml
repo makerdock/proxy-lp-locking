@@ -6,9 +6,9 @@ dataSources:
     name: lockedLP
     network: degen
     source:
-      address: "0x91C12d01AdD8B213B694ef74A38F413F5BB085b7"
+      address: "0xf67E315dd99a9Cc60ccb4de4C390C8805094e589"
       abi: lockedLP
-      startBlock: 23013343
+      startBlock: 23030883
 
     mapping:
       kind: ethereum/events
